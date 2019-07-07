@@ -11,7 +11,8 @@ import { PokemonComponent } from "./pokemon/pokemon.component";
 import { PokemonService } from "./providers/pokemon.service";
 import { NavComponent } from "./nav/nav.component";
 import { HttpClientModule } from "@angular/common/http";
-import { CapitalizePipe } from './capitalize.pipe';
+import { CapitalizePipe } from "./capitalize.pipe";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { CapitalizePipe } from './capitalize.pipe';
     NavComponent,
     CapitalizePipe
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [PokemonService],
   bootstrap: [AppComponent]
 })

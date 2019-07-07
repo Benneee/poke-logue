@@ -1,9 +1,11 @@
+/* Image / Sprites */
 #img {
   width: 10rem;
   display: block;
   margin: 0 auto;
 }
 
+/* Cards */
 .card {
   width: 14rem;
   margin-top: 2rem;
@@ -37,6 +39,28 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+.container .card {
+  margin: 1rem;
+}
+
+/* Search Input */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.input-container input {
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+}
+
+.input-container input:focus {
+  border-bottom: 1px solid red;
 }
 
 @media (max-width: 1024px) and (min-width: 768px) {
@@ -57,7 +81,7 @@
   }
 }
 
-/* Smartphones */
+/* Smartphones Display for Cards */
 @media (max-width: 500px) {
   .card {
     width: 9rem;

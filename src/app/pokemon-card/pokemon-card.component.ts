@@ -16,6 +16,7 @@ export class PokemonCardComponent implements OnInit {
   pokemon: Pokemon[];
   isLoading: boolean = false;
   error: boolean = false;
+  filtered: Pokemon[];
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -24,7 +25,7 @@ export class PokemonCardComponent implements OnInit {
       .fetchPokemon(0, 20)
       .then(pokemon => {
         pokemon = pokemon.map(p => p);
-        this.pokemon = [...pokemon];
+        this.filtered = this.pokemon = [...pokemon];
         this.isLoading = false;
         this.error = false;
       })
@@ -33,5 +34,21 @@ export class PokemonCardComponent implements OnInit {
         this.error = true;
         this.isLoading = false;
       });
+  }
+
+  filterByName(name: string) {
+    // console.log(name);
+    this.filtered = name
+      ? this.pokemon.filter(pokemon =>
+          pokemon.name.toLowerCase().includes(name.toLowerCase())
+        )
+      : this.pokemon;
+  }
+
+  filterById(id: number) {
+    this.filtered = id
+      ? this.pokemon.filter(pokemon => pokemon.id == id)
+      : this.pokemon;
+    // console.log(id);
   }
 }
