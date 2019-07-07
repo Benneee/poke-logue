@@ -1,0 +1,47 @@
+/* Navbar */
+#navbar {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background: rgb(200, 0, 40);
+  color: #fff;
+  justify-content: space-between;
+  z-index: 1;
+  padding: 1rem;
+}
+
+#navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+#navbar ul li a {
+  color: #fff;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+  text-decoration: none;
+}
+
+#navbar ul li a:hover {
+  background: #fad61d;
+  border-radius: 5px;
+  color: #333;
+}
+
+/* Smartphones */
+@media (max-width: 500px) {
+  #navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #navbar .logo {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  #navbar ul {
+    padding: 0.5rem;
+  }
+}
