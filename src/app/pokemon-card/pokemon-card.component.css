@@ -3,6 +3,9 @@
   width: 10rem;
   display: block;
   margin: 0 auto;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
 /* Cards */
@@ -43,6 +46,10 @@
 }
 .container .card {
   margin: 1rem;
+}
+
+a {
+  cursor: pointer;
 }
 
 /* Search Input */

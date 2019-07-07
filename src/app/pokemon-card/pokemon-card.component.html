@@ -30,7 +30,7 @@
           <span>#{{ p?.id }}</span
           >&nbsp;<b>{{ p?.name | capitalize }}</b>
         </h4>
-        <a routerLink="/pokemon-view" class="btn">View Stats</a>
+        <a (click)="goToPokemonPage(p?.url)" class="btn">View Stats</a>
       </div>
     </div>
   </div>
