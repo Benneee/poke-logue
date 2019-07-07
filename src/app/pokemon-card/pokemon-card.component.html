@@ -1,5 +1,25 @@
+<div class="input-container">
+  <input
+    type="text"
+    ngModel
+    name="name"
+    #name
+    (keyup)="filterByName(name.value)"
+    placeholder="Search Pokemon by name..."
+  />
+  &nbsp; &nbsp;
+  <input
+    type="number"
+    #id
+    (keyup)="filterById(id.value)"
+    ngModel
+    name="id"
+    placeholder="Search Pokemon by ID..."
+  />
+</div>
+
 <div class="container">
-  <div class="card" *ngFor="let p of pokemon">
+  <div class="card" *ngFor="let p of filtered">
     <div class="card-content">
       <div class="card-img">
         <img id="img" [src]="p?.sprite" />
