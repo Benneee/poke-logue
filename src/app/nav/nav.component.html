@@ -2,6 +2,11 @@
   <h1 class="logo">Pokelogue</h1>
 
   <ul>
-    <li><a href="#">Pokemon Types</a></li>
+    <li [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+      <a routerLink="pokemon">All Pokemon</a>
+    </li>
+    <li [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+      <a routerLink="pokemon-types">Pokemon Types</a>
+    </li>
   </ul>
 </nav>
