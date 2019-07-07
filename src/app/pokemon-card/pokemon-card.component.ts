@@ -1,11 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { Pokemon } from "../shared/pokemon.model";
-import { PokemonService } from "../providers/pokemon.service";
+import { Component, OnInit } from '@angular/core';
+import { Pokemon } from '../shared/pokemon.model';
+import { PokemonService } from '../providers/pokemon.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: "app-pokemon-card",
-  templateUrl: "./pokemon-card.component.html",
-  styleUrls: ["./pokemon-card.component.css"]
+  selector: 'app-pokemon-card',
+  templateUrl: './pokemon-card.component.html',
+  styleUrls: ['./pokemon-card.component.css']
 })
 export class PokemonCardComponent implements OnInit {
   /**
@@ -18,7 +19,11 @@ export class PokemonCardComponent implements OnInit {
   error: boolean = false;
   filtered: Pokemon[];
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(
+    private pokemonService: PokemonService,
+    private router: Router,
+    private activeRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.pokemonService
@@ -50,5 +55,17 @@ export class PokemonCardComponent implements OnInit {
       ? this.pokemon.filter(pokemon => pokemon.id == id)
       : this.pokemon;
     // console.log(id);
+  }
+
+  goToPokemonPage(url: string) {
+    // console.log(url);
+    let splitUrl = url.split('/');
+    let index = splitUrl[6];
+    let pokemonId = Number(index);
+    console.log(pokemonId);
+    this.router.navigate([`/pokemon/${pokemonId}`], {
+      relativeTo: this.activeRoute
+    });
+    console.log('navigated');
   }
 }

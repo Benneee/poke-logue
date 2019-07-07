@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemon-view.component.css']
 })
 export class PokemonViewComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    console.log('[PokemonViewComponent] has loaded');
   }
 
+  ngOnInit() {}
 }
