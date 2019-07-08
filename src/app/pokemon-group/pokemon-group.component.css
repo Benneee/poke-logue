@@ -1,0 +1,123 @@
+#img {
+  width: 10rem;
+  display: block;
+  margin: 0 auto;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Cards */
+.card {
+  width: 14rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-text h4,
+.card-text span {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.card-text .btn {
+  border-radius: 3px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  text-align: center;
+  background: #fad61d;
+  padding: 3px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container .card {
+  margin: 1rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+/* Search Input */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.input-container input {
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+}
+
+.input-container input:focus {
+  border-bottom: 1px solid red;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.3rem;
+  }
+}
+
+/* Smartphones Display for Cards */
+@media (max-width: 500px) {
+  .card {
+    width: 9rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+
+  #img {
+    width: 7rem;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .card {
+    width: 12rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+
+  #img {
+    width: 8rem;
+    display: block;
+    margin: 0 auto;
+  }
+}

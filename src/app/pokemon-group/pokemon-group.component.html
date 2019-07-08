@@ -1,1 +1,45 @@
-<p>pokemon-group works!</p>
+<div>
+<mat-accordion [multi]="multi" *ngFor="let type of pokemonTypes">
+  <mat-expansion-panel (opened)="sendId(type?.id)">
+    <mat-expansion-panel-header>
+      <mat-panel-title *ngIf="type.id">
+        <h5>#{{ type.id }}</h5>
+      </mat-panel-title>
+      <mat-panel-description *ngIf="type.name">
+        <h4>Type Name: {{ type.name | capitalize }}</h4>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <!-- Card -->
+    <div class="container">
+      <div class="card" *ngFor="let p of pokemon">
+        <div class="card-content">
+          <div class="card-img">
+            <img id="img" [src]="sendImage(p?.urlId)" />
+          </div>
+
+          <div class="card-text">
+            <h4>
+              <span>{{ p?.urlId }}}</span>&nbsp;<b>{{ p?.name }}</b>
+            </h4>
+            <a (click)="goToPokemonPage(p?.urlId)" class="btn">View Stats</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+  >
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-paginator
+[length]="length"
+[pageSize]="pageSize"
+[pageSizeOptions]="pageSizeOptions"
+(page)="onPageChange($event)"
+></mat-paginator>
+</div>

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import bootstrap from 'bootstrap';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { PokemonGroupComponent } from './pokemon-group/pokemon-group.component';
 import { PokemonViewComponent } from './pokemon-view/pokemon-view.component';
@@ -13,6 +12,10 @@ import { NavComponent } from './nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CapitalizePipe } from './capitalize.pipe';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion';
+
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,15 @@ import { FormsModule } from '@angular/forms';
     NavComponent,
     CapitalizePipe
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatPaginatorModule
+  ],
   providers: [PokemonService],
   bootstrap: [AppComponent]
 })
