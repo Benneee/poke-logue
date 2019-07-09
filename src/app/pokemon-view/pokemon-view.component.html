@@ -1,16 +1,16 @@
 <div class="card">
   <header id="header">
     <h2>{{ id }}</h2>
-    <h4>{{ type }}</h4>
+    <h4>Type: {{ type }}</h4>
   </header>
 
-  <div class="content-grid">
-    <div class="img">
-      <img [src]="imageUrl" alt="{{ name }}" />
+  <div class="content">
+    <div>
+      <img id="img" [src]="imageUrl" [alt]="name" />
     </div>
 
     <div class="stats">
-      <h1>{{ name }}</h1>
+      <h1>{{ name | capitalize }}</h1>
       <label for="hp" class="title">HP:</label>
       <progress id="hp" max="100" [value]="hp"> {{ hp }}% </progress>
 
@@ -34,18 +34,15 @@
       ></progress>
     </div>
 
-    <hr />
-
     <div class="profile">
       <h2 class="text-center">Profile</h2>
-      <h5 class="profile-text">Height:</h5>
-      <span>{{ height }}</span>
+      <div class="box">
+        <span class="profile-text">Height: {{ height }}</span>
 
-      <h5 class="profile-text">Weight:</h5>
-      <span>{{ weight }}</span>
+        <span class="profile-text">Weight: {{ weight }}</span>
 
-      <h5 class="profile-text">Effort:</h5>
-      <span>{{ effort }}</span>
+        <span class="profile-text">Effort: {{ effort }}</span>
+      </div>
     </div>
   </div>
 </div>
