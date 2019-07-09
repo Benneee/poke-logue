@@ -38,4 +38,12 @@
     </div>
   </div>
 </div>
+
+<span *ngIf="!error">
+  <span class="text-center" *ngIf="isLoading"> Loading... </span>
+</span>
+
+<span class="text-center" *ngIf="error">
+  Loading failed! Please check your connection....
+</span>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
