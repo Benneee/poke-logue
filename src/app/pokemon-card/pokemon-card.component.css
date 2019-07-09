@@ -36,7 +36,7 @@ pagination-controls {
   padding: 0.5rem;
 }
 
-.card-text .btn {
+.btn {
   border-radius: 3px;
   color: #333;
   text-decoration: none;
@@ -45,6 +45,11 @@ pagination-controls {
   text-align: center;
   background: #fad61d;
   padding: 3px;
+  transition: all 2s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }
 
 .container {

@@ -10,8 +10,11 @@
   padding: 1rem;
 }
 
-.logo {
+.logo:hover {
   cursor: pointer;
+  background: #fad61d;
+  border-radius: 5px;
+  color: #333;
 }
 
 #navbar ul {
