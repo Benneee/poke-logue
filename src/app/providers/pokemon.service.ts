@@ -5,7 +5,9 @@ import { HttpClient } from '@angular/common/http';
 export class PokemonService {
   constructor(private http: HttpClient) {}
 
-  pokemonUrl: string = 'https://pokeapi.co/api/v2/pokemon';
+  pokemonUrl: string = 'https://pokeapi.co/api/v2/pokemon/';
+  pokemonTypeUrl: string = 'https://pokeapi.co/api/v2/type';
+  pokemonFromTypeUrl: string = 'https://pokeapi.co/api/v2/type/';
   spriteUrl: string =
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
 
@@ -31,5 +33,39 @@ export class PokemonService {
           };
         })
       );
+  }
+
+  fetchPokemonType(offset: number, limit: number) {
+    return this.http
+      .get(`${this.pokemonTypeUrl}?offset=${offset}&limit=${limit}`)
+      .toPromise()
+      .then(res => res['results'])
+      .then(items =>
+        items.map((item, index) => {
+          const id: number = index + offset + 1;
+
+          return {
+            name: item.name,
+            id,
+            url: item.url
+          };
+        })
+      );
+  }
+
+  getPokemonType() {
+    return this.http.get(this.pokemonTypeUrl);
+  }
+
+  fetchPokemonByType(id: number) {
+    return this.http
+      .get(`${this.pokemonFromTypeUrl}${id}`)
+      .toPromise()
+      .then(res => res['pokemon'])
+      .then(data => data);
+  }
+
+  getPokemonInfo(id: number) {
+    return this.http.get(`${this.pokemonUrl}${id}`)
   }
 }
