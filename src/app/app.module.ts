@@ -14,7 +14,7 @@ import { CapitalizePipe } from './capitalize.pipe';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
@@ -34,7 +34,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     FormsModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressBarModule
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]

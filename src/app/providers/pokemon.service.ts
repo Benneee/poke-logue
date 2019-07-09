@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class PokemonService {
   constructor(private http: HttpClient) {}
 
-  pokemonUrl: string = 'https://pokeapi.co/api/v2/pokemon';
+  pokemonUrl: string = 'https://pokeapi.co/api/v2/pokemon/';
   pokemonTypeUrl: string = 'https://pokeapi.co/api/v2/type';
   pokemonFromTypeUrl: string = 'https://pokeapi.co/api/v2/type/';
   spriteUrl: string =
@@ -53,11 +53,19 @@ export class PokemonService {
       );
   }
 
+  getPokemonType() {
+    return this.http.get(this.pokemonTypeUrl);
+  }
+
   fetchPokemonByType(id: number) {
     return this.http
       .get(`${this.pokemonFromTypeUrl}${id}`)
       .toPromise()
       .then(res => res['pokemon'])
       .then(data => data);
+  }
+
+  getPokemonInfo(id: number) {
+    return this.http.get(`${this.pokemonUrl}${id}`)
   }
 }

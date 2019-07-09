@@ -14,22 +14,50 @@ export class PokemonGroupComponent implements OnInit {
   multi = true;
   imageUrl: string =
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
-  pokemonTypes: PokemonType[];
-  length = 20;
-  pageSize = 10;
+  pokemonTypes = [];
+  length: number;
+  pageIndex;
+  pageSize = 5;
   pageSizeOptions = [1, 2, 5];
   pokemon = [];
+  pageEvent: PageEvent;
   constructor(
     private pokemonService: PokemonService,
     private router: Router,
     private activeRoute: ActivatedRoute
   ) {}
+  onPageChange(e) {
+    this.pageIndex = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.loadData(this.pageIndex, this.pageSize);
+  }
+  loadData(pageIndex, pageSize) {
+    this.pokemonTypes.slice(pageIndex, pageIndex + pageSize);
+  }
 
   ngOnInit() {
-    this.pokemonService.fetchPokemonType(0, 20).then(pokemonType => {
-      pokemonType = pokemonType.map(type => type);
-      this.pokemonTypes = [...pokemonType];
+    // this.pokemonService.fetchPokemonType(0, 20).then(pokemonType => {
+    //   pokemonType = pokemonType.map(type => type);
+    //   this.pokemonTypes = [...pokemonType];
+    // });
+
+    this.pokemonService.getPokemonType().subscribe(data => {
+      if (data) {
+        this.length = data['count'];
+        if (data && data['results']) {
+          for (const x in data['results']) {
+            if (typeof data['results'][x] === 'object') {
+              let urlId = data['results'][x].url;
+              this.pokemonTypes.push({
+                name: data['results'][x].name,
+                urlId: this.getIdFromUrl(urlId)
+              });
+            }
+          }
+        }
+      }
     });
+    this.loadData(0, this.pageSize);
   }
 
   sendId(id: number) {

@@ -1,1 +1,51 @@
-<p>pokemon-view works!</p>
+<div class="card">
+  <header id="header">
+    <h2>{{ id }}</h2>
+    <h4>{{ type }}</h4>
+  </header>
+
+  <div class="content-grid">
+    <div class="img">
+      <img [src]="imageUrl" alt="{{ name }}" />
+    </div>
+
+    <div class="stats">
+      <h1>{{ name }}</h1>
+      <label for="hp" class="title">HP:</label>
+      <progress id="hp" max="100" [value]="hp"> {{ hp }}% </progress>
+
+      <label for="attack" class="title">Attack:</label>
+      <progress id="attack" max="100" [value]="attack"></progress>
+
+      <label for="defense" class="title">Defense:</label>
+      <progress id="defense" max="100" [value]="defense"></progress>
+
+      <label for="speed" class="title">Speed:</label>
+      <progress id="speed" [value]="speed" max="100"></progress>
+
+      <label for="specialAttack" class="title">Sp. Attack:</label>
+      <progress id="specialAttack" max="100" [value]="specialAttack"></progress>
+
+      <label for="specialDefense" class="title">Sp. Defense:</label>
+      <progress
+        id="specialDefense"
+        max="100"
+        [value]="specialDefense"
+      ></progress>
+    </div>
+
+    <hr />
+
+    <div class="profile">
+      <h2 class="text-center">Profile</h2>
+      <h5 class="profile-text">Height:</h5>
+      <span>{{ height }}</span>
+
+      <h5 class="profile-text">Weight:</h5>
+      <span>{{ weight }}</span>
+
+      <h5 class="profile-text">Effort:</h5>
+      <span>{{ effort }}</span>
+    </div>
+  </div>
+</div>
