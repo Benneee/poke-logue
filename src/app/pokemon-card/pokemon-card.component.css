@@ -12,6 +12,10 @@ pagination-controls {
   text-align: center;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* Cards */
 .card {
   width: 14rem;
