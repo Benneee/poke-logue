@@ -19,7 +19,10 @@
 </div>
 
 <div class="container">
-  <div class="card" *ngFor="let p of filtered">
+  <div
+    class="card"
+    *ngFor="let p of filtered | paginate: { itemsPerPage: 10, currentPage: p }"
+  >
     <div class="card-content">
       <div class="card-img">
         <img id="img" [src]="p?.sprite" />
@@ -35,3 +38,4 @@
     </div>
   </div>
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
