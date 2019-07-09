@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     BrowserAnimationsModule,
     MatExpansionModule,
     MatPaginatorModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    NgxPaginationModule
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]

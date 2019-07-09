@@ -7,6 +7,10 @@
   -webkit-user-select: none;
 }
 
+pagination-controls {
+  text-align: center;
+}
+
 /* Cards */
 .card {
   width: 14rem;

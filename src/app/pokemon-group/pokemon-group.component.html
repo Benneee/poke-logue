@@ -1,5 +1,10 @@
 <div>
-  <mat-accordion [multi]="multi" *ngFor="let type of pokemonTypes">
+  <mat-accordion
+    [multi]="multi"
+    *ngFor="
+      let type of pokemonTypes | paginate: { itemsPerPage: 5, currentPage: p }
+    "
+  >
     <mat-expansion-panel (opened)="sendId(type?.urlId)">
       <mat-expansion-panel-header>
         <mat-panel-title *ngIf="type.urlId">
@@ -20,7 +25,8 @@
 
             <div class="card-text">
               <h4>
-                <span>{{ p?.urlId }}}</span>&nbsp;<b>{{ p?.name }}</b>
+                <span>#{{ p?.urlId }}</span
+                >&nbsp;<b>{{ p?.name }}</b>
               </h4>
               <a (click)="goToPokemonPage(p?.urlId)" class="btn">View Stats</a>
             </div>
@@ -35,11 +41,5 @@
     >
     </mat-expansion-panel>
   </mat-accordion>
-
-  <mat-paginator
-    [length]="length"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="pageSizeOptions"
-    (page)="onPageChange($event)"
-  ></mat-paginator>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
