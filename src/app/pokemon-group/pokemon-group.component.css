@@ -40,6 +40,11 @@ pagination-controls {
   text-align: center;
   background: #fad61d;
   padding: 3px;
+  transition: all 2s;
+}
+
+.card-text .btn:hover {
+  transform: scale(1.1);
 }
 
 .container {
