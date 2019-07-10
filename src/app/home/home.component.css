@@ -32,10 +32,11 @@ p a:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  overflow: auto;
 }
 
 #inner {
-  height: 100%;
+  height: 80%;
   width: 100%;
   color: white;
   background-color: transparent;
@@ -43,6 +44,7 @@ p a:hover {
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  scroll-behavior: smooth;
 }
 
 .content {
@@ -69,12 +71,50 @@ p a:hover {
   object-fit: cover;
 }
 
-@media only screen and (max-device-width: 1366px) {
+@media only screen and (max-width: 500px) and (max-width: 768px) and (max-width: 1200px) {
   .parallax {
     background-attachment: scroll;
   }
 
-  #inner {
+  .content {
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 0.8rem;
+    padding: 2rem 1rem;
+    border-radius: 3px;
+    margin: 0 auto;
+    width: 80vw;
+  }
+
+  .content h1 {
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .content p {
+    margin: 0.7rem 0;
+  }
+
+  #welcome-section {
+    position: relative;
     width: 100%;
+    height: 100vh;
+    background: url('https://pngimg.com/uploads/pokemon/pokemon_PNG33.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  #inner {
+    height: 80%;
+    color: white;
+    width: 100vw;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    scroll-behavior: smooth;
   }
 }

@@ -60,3 +60,9 @@
     padding: 0.5rem;
   }
 }
+
+@media only screen and (max-width: 500px) and (max-width: 640px) and (max-width: 768px) and (max-width: 1200px) {
+  #navbar ul li a {
+    font-size: 1rem;
+  }
+}
