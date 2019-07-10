@@ -14,7 +14,8 @@ export class PokemonCardComponent implements OnInit {
    * sprite: string;
    * id: number
    */
-  pokemon: Pokemon[];
+  pokemon;
+  p;
   isLoading: boolean = false;
   isLoaded: boolean = false;
   error: boolean = false;
