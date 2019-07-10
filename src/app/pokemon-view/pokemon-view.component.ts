@@ -20,7 +20,7 @@ export class PokemonViewComponent implements OnInit {
   speed;
   specialAttack;
   specialDefense;
-  color = 'yellow';
+  // color = 'yellow';
   abilities: any[];
   name;
   imageUrl;
@@ -31,24 +31,23 @@ export class PokemonViewComponent implements OnInit {
   type;
 
   effort;
+  color = 'primary';
+
+  isLoading: boolean = false;
+  isLoaded: boolean = false;
 
   ngOnInit() {
     this.getPokemonId();
     this.pokemonService.getPokemonInfo(this.id).subscribe(data => {
       if (data) {
+        this.isLoading = true;
         if (data && data['name']) {
           this.name = data['name'];
+          this.isLoaded = true;
+          this.isLoading = false;
         }
 
         if (data && data['abilities']) {
-          // if (typeof data['abilities'] === 'object') {
-          //   for (const x in data['abilities']) {
-          //     if (data['abilities']) {
-          //       this.abilityName = data['abilities'][x]['ability']['name'];
-          //     }
-          //   }
-          // }
-          // console.log(data['abilities']);
           this.abilities = [...data['abilities']];
           this.ability = this.abilities
             .map(ability => {
@@ -59,6 +58,8 @@ export class PokemonViewComponent implements OnInit {
                 .join(' ');
             })
             .join(', ');
+          this.isLoading = false;
+          this.isLoaded = true;
           // console.log(this.ability);
         }
         if (data && data['sprites']) {
@@ -87,6 +88,8 @@ export class PokemonViewComponent implements OnInit {
                 this.specialDefense = stat['base_stat'];
                 break;
             }
+            this.isLoading = false;
+            this.isLoaded = true;
             return this.stats;
           });
         }
@@ -108,6 +111,8 @@ export class PokemonViewComponent implements OnInit {
             })
             .join(', ');
           // console.log(this.effort);
+          this.isLoading = false;
+          this.isLoaded = true;
         }
         if (data && data['height']) {
           // Convert from decimeters to meters
@@ -128,6 +133,8 @@ export class PokemonViewComponent implements OnInit {
                 .join(' ');
             })
             .join(', ');
+          this.isLoading = false;
+          this.isLoaded = true;
         }
       }
     });

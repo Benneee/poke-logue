@@ -55,3 +55,7 @@
 .box .profile-text:nth-child(3) {
   margin-top: 0.5rem;
 }
+
+.profile {
+  margin-top: 1rem;
+}

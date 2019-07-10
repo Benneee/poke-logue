@@ -35,6 +35,15 @@ export class PokemonService {
       );
   }
 
+  // option: boolean, offset: number, limit: number
+
+  getAllPokemon(url?: string) {
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(res => res);
+  }
+
   fetchPokemonType(offset: number, limit: number) {
     return this.http
       .get(`${this.pokemonTypeUrl}?offset=${offset}&limit=${limit}`)
@@ -66,6 +75,6 @@ export class PokemonService {
   }
 
   getPokemonInfo(id: number) {
-    return this.http.get(`${this.pokemonUrl}${id}`)
+    return this.http.get(`${this.pokemonUrl}${id}`);
   }
 }

@@ -21,10 +21,14 @@
 <div class="container">
   <div
     class="card"
-    *ngFor="let p of filtered | paginate: { itemsPerPage: 10, currentPage: p }"
+    *ngFor="let p of filtered | paginate: { itemsPerPage: 20, currentPage: p }"
   >
-    <div class="card-content">
-      <div class="card-img">
+    <div *ngIf="!error" class="card-content">
+      <div *ngIf="isLoading" class="card-img">
+        <img id="img" src="../../assets/spinner.gif" />
+      </div>
+
+      <div *ngIf="isLoaded" class="card-img">
         <img id="img" [src]="p?.sprite" />
       </div>
 
@@ -39,11 +43,25 @@
   </div>
 </div>
 
-<span *ngIf="!error">
+<!-- <span *ngIf="!error">
   <span class="text-center" *ngIf="isLoading"> Loading... </span>
-</span>
+</span> -->
 
 <span class="text-center" *ngIf="error">
   Loading failed! Please check your connection....
 </span>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<div *ngIf="!error">
+  <pagination-controls
+    class="my-pagination"
+    (pageChange)="p = $event"
+    previousLabel="Click See previous..."
+    nextLabel="Click See more..."
+  ></pagination-controls>
+</div>
+<div *ngIf="!error" style="text-align: center">
+  <button *ngIf="previousPage === true" (click)="getPreviousPageData()">
+    See Previous...
+  </button>
+  <button (click)="getNextPageData()">See more...</button>
+</div>

@@ -135,3 +135,7 @@ a {
     margin: 0 auto;
   }
 }
+
+.my-pagination /deep/ .ngx-pagination .current {
+  background: red;
+}
