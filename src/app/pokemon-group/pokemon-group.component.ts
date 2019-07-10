@@ -42,7 +42,7 @@ export class PokemonGroupComponent implements OnInit {
   }
 
   sendId(id: number) {
-    console.log(id);
+    // console.log(id);
     this.pokemonService.fetchPokemonByType(id).then(data => {
       // console.log(data);
 
@@ -75,6 +75,6 @@ export class PokemonGroupComponent implements OnInit {
     this.router.navigate([`/pokemon/${id}`], {
       relativeTo: this.activeRoute
     });
-    console.log('navigated');
+    // console.log('navigated');
   }
 }
