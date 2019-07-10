@@ -11,17 +11,18 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class PokemonGroupComponent implements OnInit {
   panelOpenState = false;
   multi = true;
+  p;
+  type;
   imageUrl: string =
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   pokemonTypes = [];
-  
+
   pokemon = [];
   constructor(
     private pokemonService: PokemonService,
     private router: Router,
     private activeRoute: ActivatedRoute
   ) {}
-  
 
   ngOnInit() {
     this.pokemonService.getPokemonType().subscribe(data => {

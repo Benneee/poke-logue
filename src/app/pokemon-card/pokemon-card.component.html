@@ -21,7 +21,9 @@
 <div class="container">
   <div
     class="card"
-    *ngFor="let p of filtered | paginate: { itemsPerPage: 20, currentPage: p }"
+    *ngFor="
+      let pokemon of filtered | paginate: { itemsPerPage: 20, currentPage: p }
+    "
   >
     <div *ngIf="!error" class="card-content">
       <div *ngIf="isLoading" class="card-img">
@@ -29,15 +31,15 @@
       </div>
 
       <div *ngIf="isLoaded" class="card-img">
-        <img id="img" [src]="p?.sprite" />
+        <img id="img" [src]="pokemon?.sprite" />
       </div>
 
       <div class="card-text">
         <h4>
-          <span>#{{ p?.id }}</span
-          >&nbsp;<b>{{ p?.name | capitalize }}</b>
+          <span>#{{ pokemon?.id }}</span
+          >&nbsp;<b>{{ pokemon?.name | capitalize }}</b>
         </h4>
-        <a (click)="goToPokemonPage(p?.url)" class="btn">View Stats</a>
+        <a (click)="goToPokemonPage(pokemon?.url)" class="btn">View Stats</a>
       </div>
     </div>
   </div>
