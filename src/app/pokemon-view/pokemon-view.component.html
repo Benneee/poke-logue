@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="isLoaded && !isLoading">
   <header id="header">
     <h2>{{ id }}</h2>
     <h4>Type: {{ type }}</h4>
@@ -34,15 +34,24 @@
       ></progress>
     </div>
 
+    <br />
+
+    <hr />
+
     <div class="profile">
       <h2 class="text-center">Profile</h2>
       <div class="box">
-        <span class="profile-text">Height: {{ height }}</span>
+        <span class="profile-text">Height: {{ height }}m</span>
 
-        <span class="profile-text">Weight: {{ weight }}</span>
+        <span class="profile-text">Weight: {{ weight }}kg</span>
 
         <span class="profile-text">Effort: {{ effort }}</span>
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="isLoading && !isLoaded">
+  <!-- Load Spinner Component here -->
+  <mat-spinner [color]="color"></mat-spinner>
 </div>
