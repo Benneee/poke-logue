@@ -6,7 +6,7 @@
 
   <div class="content">
     <div>
-      <img id="img" [src]="imageUrl" [alt]="name" />
+      <img id="img" defaultImage="{{ 'assets/spinner.gif' }}" [lazyLoad]="imageUrl" [alt]="name" />
     </div>
 
     <div class="stats">
