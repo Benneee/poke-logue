@@ -31,7 +31,11 @@
       </div>
 
       <div *ngIf="isLoaded" class="card-img">
-        <img id="img" [src]="pokemon?.sprite" />
+        <img
+          id="img"
+          defaultImage="{{ 'assets/spinner.gif' }}"
+          [lazyLoad]="pokemon?.sprite"
+        />
       </div>
 
       <div class="card-text">

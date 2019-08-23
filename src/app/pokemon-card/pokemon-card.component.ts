@@ -16,17 +16,19 @@ export class PokemonCardComponent implements OnInit {
    */
   pokemon;
   p;
-  isLoading: boolean = false;
-  isLoaded: boolean = false;
-  error: boolean = false;
+  isLoading = false;
+  isLoaded = false;
+  error = false;
+  defaultImage;
+  lazyLoad;
   // filtered: Pokemon[];
 
-  pokemonUrl: string = 'https://pokeapi.co/api/v2/pokemon/';
+  pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
   nextPageUrl;
   previousPageURL;
-  previousPage: boolean = false;
+  previousPage = false;
   results;
-  imageUrl: string =
+  imageUrl =
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   filtered: any;
 

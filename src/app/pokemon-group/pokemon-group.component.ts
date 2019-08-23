@@ -13,6 +13,8 @@ export class PokemonGroupComponent implements OnInit {
   multi = true;
   p;
   type;
+  defaultImage;
+  lazyLoad;
   imageUrl: string =
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   pokemonTypes = [];
