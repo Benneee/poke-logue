@@ -20,7 +20,12 @@
         <div class="card" *ngFor="let p of pokemon">
           <div class="card-content">
             <div class="card-img">
-              <img id="img" [src]="sendImage(p?.urlId)" />
+              <!-- <img id="img" [src]="sendImage(p?.urlId)" /> -->
+              <img
+              id="img"
+              defaultImage="{{ 'assets/spinner.gif' }}"
+              [lazyLoad]="sendImage(p?.urlId)"
+            />
             </div>
 
             <div class="card-text">
