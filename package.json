@@ -26,7 +26,7 @@
     "@angular/platform-browser": "~8.0.3",
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ng-lazy-load-image": "^0.1.5",
     "ng-lazyload-image": "^6.1.0",
     "ngx-pagination": "^4.0.0",
